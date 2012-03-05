@@ -23,13 +23,13 @@ end
 gem 'jquery-rails'
 
 group :test, :development do
-#  gem 'sqlite3'
+  gem 'sqlite3'
   gem 'heroku'
   gem 'rspec'
 end
 
 group :production do
-#  gem 'pg'
+  gem 'pg'
   gem 'thin'
 end
 
