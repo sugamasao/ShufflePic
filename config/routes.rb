@@ -1,4 +1,8 @@
 RandomTweet::Application.routes.draw do
+  get "welcome/index"
+
+  get "welcome/dashboard"
+
   root :to => 'pages#index'
   get "pages/index"
 
