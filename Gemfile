@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.2'
+gem 'omniauth'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -25,7 +26,8 @@ gem 'jquery-rails'
 group :test, :development do
   gem 'sqlite3'
   gem 'heroku'
-  gem 'rspec'
+#  gem 'rspec'
+  gem 'rspec-rails'
 end
 
 group :production do
