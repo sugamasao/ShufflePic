@@ -1,10 +1,12 @@
 RandomTweet::Application.routes.draw do
-  get "welcome/index"
-
-  get "welcome/dashboard"
-
-  root :to => 'pages#index'
-  get "pages/index"
+  root :to => 'welcome#index'
+  get  '/dashboard', :to => 'welcome#dashboard'
+  
+  delete 'sessions/destroy'
+  match '/auth/:provider/callback', :to => 'sessions#create'
+  match '/auth/failure', :to => 'sessions#failure'
+#
+#  get "pages/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

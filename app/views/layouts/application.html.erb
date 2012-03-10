@@ -37,9 +37,14 @@
           <a class="brand" href="#">RandomTweet</a>
           <div class="container nav-collapse">
             <ul class="nav">
-                <li><%= link_to "Link1", "/path1"  %></li>
-                <li><%= link_to "Link2", "/path2"  %></li>
-                <li><%= link_to "Link3", "/path3"  %></li>
+                <li>
+                  <% if @current_user %>
+                    <%= link_to 'sign out', sessions_destroy_path, :method => :delete %>
+                  <% else %>
+                    <%= link_to 'sign in(twitter)', '/auth/twitter' %>
+                  <% end %>
+                  </li>
+                  <li><%= link_to "Link1", "/path1"  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
