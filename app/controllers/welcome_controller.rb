@@ -11,7 +11,7 @@ class WelcomeController < ApplicationController
     else
       @user = current_user
       begin
-      @timelines = profile_shuffle!(user_timelines(@user))
+        @timelines = profile_shuffle!(user_timelines(@user))
       rescue Twitter::Error::Unauthorized => e
         flash[:error] = "#{e.class} => #{e.message}"
         sign_out!
@@ -43,7 +43,7 @@ class WelcomeController < ApplicationController
     return timelines
   end
   
-  def profile_list(timlines)
+  def profile_list(timelines)
     timelines.map do |tweet_user|
       tweet_user[:profile]
     end
