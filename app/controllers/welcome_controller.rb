@@ -10,7 +10,13 @@ class WelcomeController < ApplicationController
       redirect_to root_path
     else
       @user = current_user
+      begin
       @timelines = profile_shuffle!(user_timelines(@user))
+      rescue Twitter::Error::Unauthorized => e
+        flash[:error] = "#{e.class} => #{e.message}"
+        sign_out!
+        redirect_to root_path
+      end
     end
   end
   
@@ -30,13 +36,16 @@ class WelcomeController < ApplicationController
   end
     
   def profile_shuffle!(timelines)
-    profiles = timelines.map do |tweet_user|
-      tweet_user[:profile]
-    end
-    profiles.shuffle.each_with_index do |profile, index|
+    profile_list(timelines).shuffle.each_with_index do |profile, index|
       timelines[index][:profile] = profile
     end
     
     return timelines
+  end
+  
+  def profile_list(timlines)
+    timelines.map do |tweet_user|
+      tweet_user[:profile]
+    end
   end
 end

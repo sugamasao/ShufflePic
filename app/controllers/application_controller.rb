@@ -23,9 +23,9 @@ class ApplicationController < ActionController::Base
   
   def auth_twitter(user)
     Twitter.configure do |config|
-      config.consumer_key = 'PuTONsdr6PMwuAQbkH5Yw'
-      config.consumer_secret = 'BCgDY003Sn2QPATfhZht5uC0wBMFfS7V4a1y1e603Q'
-      config.oauth_token = user.access_token
+      config.consumer_key       = 'consumer_key'
+      config.consumer_secret    = 'consumer_secret'
+      config.oauth_token        = user.access_token
       config.oauth_token_secret = user.access_secret
     end
   end

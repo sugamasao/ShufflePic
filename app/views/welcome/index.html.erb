@@ -1,4 +1,9 @@
 <h1>ShufflePic</h1>
+<% if flash[:error] %>
+  <div class="alert alert-error">
+    <p>Something Error! please tweet @sugamsao to "<%= flash[:error] %>" </p>
+  </div>
+<% end %>
 <p>タイムラインで出てくるユーザの画像を適当に違う人のにしたら面白くね！？みたいな話をしたので作りました。元々はFacebookをiPhoneアプリで見るとアイコンが違う人のになって、ジワジワ系の面白さがあったのが発端でした。</p>
 <p>画面上部のログインからTwitterへOAuth認証すると、アイコンだけバラバラなタイムラインが表示されます。それだけ。</p>
 
