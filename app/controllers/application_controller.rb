@@ -12,12 +12,21 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
   
-  def signed_out!
+  def sign_out!
     session.delete :user_id
   end
   
   def current_user=(user)
     @current_user = user
     session[:user_id] = user.id
+  end
+  
+  def auth_twitter(user)
+    Twitter.configure do |config|
+      config.consumer_key = 'PuTONsdr6PMwuAQbkH5Yw'
+      config.consumer_secret = 'BCgDY003Sn2QPATfhZht5uC0wBMFfS7V4a1y1e603Q'
+      config.oauth_token = user.access_token
+      config.oauth_token_secret = user.access_secret
+    end
   end
 end

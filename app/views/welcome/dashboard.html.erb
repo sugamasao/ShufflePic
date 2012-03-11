@@ -1,2 +1,24 @@
-<h1>Welcome <%= @user.name %> from <%= @user.provider %></h1>
+<h1>Welcome <%= @user.name %></h1>
+
+<ul class="unstyled">
+  <% @timelines.each do |user| %>
+    <li>
+    <div class="row-fluid">
+      <div class="span1">
+        <%= image_tag user[:profile] %>
+      </div>
+      <div class="span11">
+        <div>
+          <strong><%= user[:name] %></strong>
+          /
+          <%= user[:screen_name] %>
+        </div>
+        <div>
+          <%= user[:text] %>
+        </div>
+      </div>
+    </div>
+    </li>
+  <% end %>
+</ul>
 

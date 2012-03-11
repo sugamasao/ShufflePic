@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>RandomTweet</title>
+    <title>ShufflePic</title>
     <%= csrf_meta_tags %>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
@@ -34,29 +34,29 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">RandomTweet</a>
+          <%= link_to 'ShufflePic', dashboard_path, :class => "brand" %>
           <div class="container nav-collapse">
             <ul class="nav">
                 <li>
-                  <% if @current_user %>
-                    <%= link_to 'sign out', sessions_destroy_path, :method => :delete %>
+                  <% if current_user %>
+                    <%= link_to 'ログアウト', sessions_destroy_path, :method => :delete %>
                   <% else %>
-                    <%= link_to 'sign in(twitter)', '/auth/twitter' %>
+                    <%= link_to 'ログイン', '/auth/twitter' %>
                   <% end %>
                   </li>
-                  <li><%= link_to "Link1", "/path1"  %></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
-
+    
     <div class="container">
       <div class="content">
         <div class="row">
           <div class="span9">
             <%= yield %>
           </div>
+          <!--
           <div class="span1">&nbsp;</div>
             <div class="span3">
               <div class="well sidebar-nav">
@@ -69,12 +69,21 @@
                 </ul>
               </div>
             </div>
+            <-->
           </div>
         </div><!--/row-->
       </div><!--/content-->
 
       <footer>
-        <p>&copy; Company 2012</p>
+        <p>&copy; 
+          <%= link_to '@sugamasao', "https://twitter.com/#!/sugamasao" %>
+        </p>
+        <p>このアイデアをくれた 
+        <%= link_to '@ipuheke', "https://twitter.com/#!/ipuheke" %>さん
+        ありがとう。それと、Twitterのログイン周り(OAuth)をWEBDB+PRESSで執筆してくださった
+        <%= link_to '@june29', "https://twitter.com/#!/june29" %> さん
+        <%= link_to '@kei_s', "https://twitter.com/#!/kei_s" %> さん
+        に感謝。</p>
       </footer>
 
     </div> <!-- /container -->
