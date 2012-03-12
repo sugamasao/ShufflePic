@@ -2,11 +2,10 @@
 
 desc "アプリケーションをデプロイをする時に気をつけることリスト"
 task :readme => :environment do
-  puts "Twitterのconsumer keyなどを実際の値に変える必要があるファイル"
+  puts "Twitterのconsumer keyなどを実際の値に変える必要がある"
+  puts "ローカルの場合はexportで。herokuの場合は %heroku config:add KEY=value で登録してね。"
+  puts "export SHUFFLE_PIC_CONSUMER_KEY=key"
+  puts "export SHUFFLE_PIC_CONSUMER_SECRET=secret"
   puts "実際の値は https://dev.twitter.com/apps から探しな"
-  Dir.glob(Rails.root.to_s + "/**/*.rb").each do |list|
-    unless File.readlines(list).grep(/('consumer_secret')|('consumer_key')/).empty?
-      puts list
-    end
-  end
 end
+
