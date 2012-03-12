@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
   end
   
   def auth_twitter(user)
+    logger.warn ENV['HOGE']
     Twitter.configure do |config|
       config.consumer_key       = 'nDMuBzbv5vBv07JHLLzg'
       config.consumer_secret    = 'gxyJGlQkvQy93xRWu5oDlsClafXk6eR8YCfM3zwn8'
