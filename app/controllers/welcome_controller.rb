@@ -1,6 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    logger.warn "SHUFFLE_PIC_CONSUMER_KEY=>[#{ENV['SHUFFLE_PIC_CONSUMER_KEY']}]"
     if signed_in?
       redirect_to dashboard_path
     end
@@ -24,8 +23,6 @@ class WelcomeController < ApplicationController
   private
   def user_timelines(user)
     auth_twitter(user)
-#    follower = Twitter.follower_ids(user.name).ids
-#    Twitter.user(follower.first.to_i)
     Twitter.home_timeline.map do |tweet_user|
       {
         :name => tweet_user.user.name,

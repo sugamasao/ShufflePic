@@ -1,3 +1,3 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :twitter, ENV['SHUFFLE_PIC_CONSUMER_KEY'], ENV['SHUFFLE_PIC_CONSUMER_KEY']
+  provider :twitter, ENV['SHUFFLE_PIC_CONSUMER_KEY'], ENV['SHUFFLE_PIC_CONSUMER_SECRET']
 end
