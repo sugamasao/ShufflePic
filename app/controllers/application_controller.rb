@@ -22,6 +22,7 @@ class ApplicationController < ActionController::Base
   end
   
   def auth_twitter(user)
+    logger.warn ENV['SHUFFLE_PIC_CONSUMER_KEY']
     Twitter.configure do |config|
       config.consumer_key       = ENV['SHUFFLE_PIC_CONSUMER_KEY']
       config.consumer_secret    = ENV['SHUFFLE_PIC_CONSUMER_SECRET']
