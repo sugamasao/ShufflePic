@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   def index
+    logger.warn "SHUFFLE_PIC_CONSUMER_KEY=>[#{ENV['SHUFFLE_PIC_CONSUMER_KEY']}]"
     if signed_in?
       redirect_to dashboard_path
     end
